@@ -25,7 +25,10 @@ export default function Main({ task, setTask, tasks, setTasks, edited, setEdited
               </div>
 
               <div className='tasks'>
-                  {tasks.map(task => (
+                  {tasks.length === 0 ? (
+                      <p className="no-tasks">No tasks assigned for you</p>
+                  ) : (
+                  tasks.map(task => (
                       <div className={`task-item ${task.done ? "done" : "pending"}`} key={task.id}>
 
                           <div className="task-content">
@@ -62,7 +65,7 @@ export default function Main({ task, setTask, tasks, setTasks, edited, setEdited
                           </div>
 
                       </div>
-                  ))}
+                  )))}
               </div>
 
 

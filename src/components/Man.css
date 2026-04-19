@@ -105,6 +105,14 @@ body.dark .task-input input {
   gap: 15px;
 }
 
+.no-tasks {
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+  margin-top: 20px;
+  font-style: italic;
+}
+
 /* Each task card */
 .task-item {
  display: flex;
