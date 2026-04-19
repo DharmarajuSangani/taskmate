@@ -28,8 +28,6 @@ function App() {
             return;
         }
         if(edited) {
-            const selectedTask = tasks.find(t => t.id === edited);
-            console.log(selectedTask);
             const updatedTasks = tasks.map(t => t.id === edited ? { ...t, text: task, timestamp: `${date.toLocaleTimeString()},  ${date.toLocaleDateString()}`, done: t.done } : {id: t.id, text: t.text, timestamp: t.timestamp, done: t.done});
             setTasks(updatedTasks);
             setEdited(0);
@@ -44,7 +42,6 @@ function App() {
         };
         setTasks([...tasks, newTask]);
         setTask('');
-        console.log("completed");
     };
 
     const clearTasks = () => {
