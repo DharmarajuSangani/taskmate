@@ -1,0 +1,35 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Root Themes */
+:root {
+  --bg-light: #f4f7fb;
+  --text-light: #1e293b;
+  --header-light: rgba(255, 255, 255, 0.7);
+
+  --bg-dark: #0f172a;
+  --text-dark: #f1f5f9;
+  --header-dark: rgba(15, 23, 42, 0.7);
+
+  --accent: #6366f1;
+}
+
+body {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Apply background to full app */
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
