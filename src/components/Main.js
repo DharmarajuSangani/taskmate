@@ -39,7 +39,7 @@ export default function Main({ task, setTask, tasks, setTasks, edited, setEdited
 
                                   <input
                                       type="checkbox"
-                                      checked={task.completed}
+                                      checked={task.done}
                                       disabled={task.done}
                                       onChange={() => toggleTask(task.id)}
                                       className="task-checkbox"

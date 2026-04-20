@@ -5,19 +5,15 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 
 function App() {
-  const[theme, setTheme] = useState("light");
 
-  useEffect(() => {
-    document.body.className = theme;
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  const[theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
   const[task, setTask] = useState('');
-    const[tasks, setTasks] = useState([]);
+    const[tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
     const[edited, setEdited] = useState(0);
 
     const date = new Date();
@@ -62,6 +58,15 @@ function App() {
         const updatedTasks = tasks.map(task => task.id === id ? { ...task, timestamp: `${date.toLocaleTimeString()},  ${date.toLocaleDateString()}`, done: true } : task);
         setTasks(updatedTasks);
     }
+
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <div className="App">
